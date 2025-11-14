@@ -3,6 +3,7 @@ import 'package:appdioteste/pages/dados_cadastrais.dart';
 import 'package:appdioteste/pages/login_page.dart';
 import 'package:appdioteste/pages/numeros_aleatorios_page.dart';
 import 'package:appdioteste/pages/consulta_cep.dart';
+import 'package:appdioteste/pages/post_page.dart';
 import 'package:flutter/material.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -112,6 +113,17 @@ class CustomDrawer extends StatelessWidget {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const ConsultaCEP()));
                   ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('Https seleionado')),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.post_add),
+                title: const Text('Posts'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const PostPage()));
+                  ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Post seleionado')),
                   );
                 },
               ),
