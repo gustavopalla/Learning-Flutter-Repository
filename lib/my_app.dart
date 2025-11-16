@@ -1,5 +1,6 @@
 
 import 'package:appdioteste/pages/main_page.dart';
+import 'package:appdioteste/pages/splash_screen_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -9,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const MainPage(),
+      home: const SplashScreenPage(),
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         textTheme: GoogleFonts.robotoTextTheme(),

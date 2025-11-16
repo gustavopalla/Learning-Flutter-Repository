@@ -1,10 +1,12 @@
 import 'package:appdioteste/pages/configuracoes_page.dart';
 import 'package:appdioteste/pages/dados_cadastrais.dart';
+import 'package:appdioteste/pages/home_page.dart';
 import 'package:appdioteste/pages/login_page.dart';
 import 'package:appdioteste/pages/numeros_aleatorios_page.dart';
 import 'package:appdioteste/pages/consulta_cep.dart';
 import 'package:appdioteste/pages/post_page.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key, required ListView child});
@@ -73,7 +75,7 @@ class CustomDrawer extends StatelessWidget {
                 },
               ),
               ListTile(
-                leading: const Icon(Icons.data_usage),
+                leading: const FaIcon(FontAwesomeIcons.floppyDisk),
                 title: const Text('Dados Cadastrais'),
                 onTap: () {
                   Navigator.pop(context);
@@ -113,6 +115,17 @@ class CustomDrawer extends StatelessWidget {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const ConsultaCEP()));
                   ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('Https seleionado')),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const FaIcon(FontAwesomeIcons.house),
+                title: const Text('Home'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
+                  ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Home selecionado')),
                   );
                 },
               ),

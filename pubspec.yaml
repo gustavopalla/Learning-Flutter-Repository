@@ -37,10 +37,14 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   http: ^1.6.0
+  font_awesome_flutter: ^10.12.0
+  percent_indicator: ^4.2.5
+  animated_text_kit: ^4.3.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.13.1
   
 
   # The "flutter_lints" package below contains a set of recommended lints to
@@ -93,3 +97,11 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assetsIcon/8206001.png"
+  macos:
+    generate: true
+    image_path: "path/to/image.png"
