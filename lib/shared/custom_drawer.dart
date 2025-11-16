@@ -128,6 +128,17 @@ class CustomDrawer extends StatelessWidget {
                 },
               ),
               ListTile(
+                leading: const Icon(Icons.post_add),
+                title: const Text('Heróis'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const PostPage()));
+                  ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Herói seleionado')),
+                  );
+                },
+              ),
+              ListTile(
                 leading: const Icon(Icons.exit_to_app),
                 title: const Text('Sair'),
                 onTap: () {
