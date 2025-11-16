@@ -1,7 +1,6 @@
 import 'package:appdioteste/model/post_model.dart';
 import 'package:appdioteste/repository/post_repository.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 
 class PostPage extends StatefulWidget {
   const PostPage({super.key});

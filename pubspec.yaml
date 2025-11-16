@@ -41,6 +41,7 @@ dependencies:
   percent_indicator: ^4.2.5
   animated_text_kit: ^4.3.0
   convex_bottom_bar: ^3.2.0
+  brasil_fields: ^1.18.0
 
 dev_dependencies:
   flutter_test:
