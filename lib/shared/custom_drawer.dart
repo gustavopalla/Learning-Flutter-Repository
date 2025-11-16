@@ -1,3 +1,4 @@
+import 'package:appdioteste/pages/batteryPage/baterry_page.dart';
 import 'package:appdioteste/pages/configuracoes_page.dart';
 import 'package:appdioteste/pages/dados_cadastrais.dart';
 import 'package:appdioteste/pages/home_page.dart';
@@ -126,6 +127,17 @@ class CustomDrawer extends StatelessWidget {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
                   ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('Home selecionado')),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const FaIcon(FontAwesomeIcons.batteryHalf),
+                title: const Text('Battery'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const BaterryPage()));
+                  ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Baterry selecionado')),
                   );
                 },
               ),
