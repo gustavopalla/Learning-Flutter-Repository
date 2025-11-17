@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:appdioteste/pages/batteryPage/baterry_page.dart';
 import 'package:appdioteste/pages/configuracoes_page.dart';
 import 'package:appdioteste/pages/dados_cadastrais.dart';
@@ -8,6 +10,9 @@ import 'package:appdioteste/pages/consulta_cep.dart';
 import 'package:appdioteste/pages/post_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:path_provider/path_provider.dart' as path_provider;
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key, required ListView child});
@@ -144,11 +149,40 @@ class CustomDrawer extends StatelessWidget {
               ListTile(
                 leading: const Icon(Icons.post_add),
                 title: const Text('Posts'),
-                onTap: () {
-                  Navigator.pop(context);
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const PostPage()));
+                onTap: () async{
+                  var directory = await path_provider.getTemporaryDirectory();
+                  print(directory);
+                },
+              ),
+              ListTile(
+                leading: const FaIcon(FontAwesomeIcons.internetExplorer),
+                title: const Text('Abrir Google'),
+                onTap: () async {
+                  await launchUrl(Uri.parse("https://dio.me"));
                   ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Post seleionado')),
+                  const SnackBar(content: Text('Google aberto')),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const FaIcon(FontAwesomeIcons.internetExplorer),
+                title: const Text('Path'),
+                onTap: () {
+                  
+                  ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Google aberto')),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const FaIcon(FontAwesomeIcons.share),
+                title: const Text('Share'),
+                onTap: () async{
+                  await SharePlus.instance.share(
+                    ShareParams(text: 'check out my website https://dio.me')
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('share')),
                   );
                 },
               ),
