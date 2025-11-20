@@ -1,9 +1,11 @@
 import 'package:appdioteste/classes/configuracoes_usuarios.dart';
+import 'package:appdioteste/classes/dark_mode.dart';
 import 'package:appdioteste/pages/card_page.dart';
 import 'package:appdioteste/pages/pagina3.dart';
 import 'package:appdioteste/pages/tarefa_page.dart';
 import 'package:appdioteste/shared/custom_drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MainPage extends StatefulWidget {
@@ -50,9 +52,20 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    var darkMode = Provider.of<DarkMode>(context);
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(title: const Text("Main Page")),
+        appBar: AppBar(title: const Text("Main Page"), 
+        actions: [
+          Center(child: Text('Dark Mode'),),
+          Consumer<DarkMode>(
+            builder: (_, darkMode, widget) {
+              return Switch(value: darkMode.darkMode, onChanged: (bool value){
+                darkMode.darkMode = !darkMode.darkMode;
+              });
+            }
+          )
+        ],),
         drawer: CustomDrawer(
           child: ListView(
             padding: EdgeInsets.zero,

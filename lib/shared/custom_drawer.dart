@@ -3,11 +3,13 @@ import 'dart:io';
 import 'package:appdioteste/pages/batteryPage/baterry_page.dart';
 import 'package:appdioteste/pages/configuracoes_page.dart';
 import 'package:appdioteste/pages/dados_cadastrais.dart';
+import 'package:appdioteste/pages/gps_page.dart';
 import 'package:appdioteste/pages/home_page.dart';
 import 'package:appdioteste/pages/login_page.dart';
 import 'package:appdioteste/pages/numeros_aleatorios_page.dart';
 import 'package:appdioteste/pages/consulta_cep.dart';
 import 'package:appdioteste/pages/post_page.dart';
+import 'package:appdioteste/pages/tarefa_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:share_plus/share_plus.dart';
@@ -92,11 +94,33 @@ class CustomDrawer extends StatelessWidget {
                 },
               ),
               ListTile(
+                leading: const FaIcon(FontAwesomeIcons.floppyDisk),
+                title: const Text('tarefa'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const TarefaPage()));
+                  ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Dados Cadastrais selecionado')),
+                  );
+                },
+              ),
+              ListTile(
                 leading: const Icon(Icons.confirmation_number),
                 title: const Text('Gerador de Números Aleatórios'),
                 onTap: () {
                   Navigator.pop(context);
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const NumerosAleatoriosPage()));
+                  ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Gerador de Números Aleatórios selecionado')),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const FaIcon(FontAwesomeIcons.mapPin),
+                title: const Text('GPS'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const GpsPage()));
                   ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('Gerador de Números Aleatórios selecionado')),
                   );
